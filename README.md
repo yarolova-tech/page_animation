@@ -1,36 +1,73 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Page Animation
 
-## Getting Started
+Projet Next.js (App Router) avec animations GSAP/ScrollTrigger pour afficher des cartes d'experiences avec un rendu moderne (Tailwind CSS + icones Lucide) et un switch theme clair/sombre.
 
-First, run the development server:
+## Apercu
+
+- Affichage d'une section `CardAnime` animee au scroll.
+- Donnees chargees depuis `components/data/experience.ts`.
+- Composant `LightDark` pour changer le theme (`next-themes`).
+- Composant utilitaire `CustomAnimateScroll` pour des animations reutilisables.
+
+## Stack technique
+
+- Next.js 16
+- React 19
+- TypeScript
+- Tailwind CSS 4
+- GSAP + `@gsap/react` + `ScrollTrigger`
+- `next-themes`
+- `lucide-react`
+
+## Installation
+
+Prerequis:
+
+- Node.js 20+ recommande
+- npm
+
+Etapes:
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Application disponible sur: `http://localhost:3000`
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Scripts
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run dev    # Lancer en developpement
+npm run build  # Build de production
+npm run start  # Demarrer le build de production
+npm run lint   # Verifier le code avec ESLint
+```
 
-## Learn More
+## Structure utile
 
-To learn more about Next.js, take a look at the following resources:
+```txt
+app/
+  layout.tsx
+  page.tsx
+components/
+  data/
+    experience.ts
+  outils/
+    LightDark.tsx
+    CustomAnimateScroll.tsx
+    CardAnime.tsx
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Personnalisation rapide
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- Modifier les donnees des cartes: `components/data/experience.ts`
+- Ajuster les animations de la timeline: `app/CardAnime.tsx`
+- Ajuster le declenchement scroll reutilisable: `components/outils/CustomAnimateScroll.tsx`
+- Modifier le style global: `app/globals.css`
 
-## Deploy on Vercel
+## Notes
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Les composants utilisant GSAP sont en `"use client"`.
+- `ScrollTrigger` est utilise pour synchroniser l'animation avec le scroll.
+- Si vous ajoutez de nouveaux composants themes, utilisez `next-themes` avec precaution pour eviter les mismatches d'hydratation.
