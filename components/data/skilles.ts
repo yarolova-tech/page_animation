@@ -1,0 +1,17 @@
+export const skilles = [
+  "JavaScript",
+  "TypeScript",
+  "React",
+  "Next.js",
+  "Node.js",
+  "Express.js",
+  "MongoDB",
+  "SQL",
+  "Git",
+  "Docker",
+  "CI/CD",
+  "PostgreSQL",
+  "MySQL",
+  "REST APIs",
+  "n8n",
+];
